@@ -1,0 +1,124 @@
+
+
+ sqlcaid : SQLCA     sqlcabc: 136   sqlcode: -973   sqlerrml: 10
+ sqlerrmc: PCKCACHESZ
+
+
+ Global instance memory (4KB)          (INSTANCE_MEMORY) = AUTOMATIC(829507)
+ Self tuning memory                    (SELF_TUNING_MEM) = ON
+ Size of database shared memory (4KB)  (DATABASE_MEMORY) = AUTOMATIC(53856)
+ Utilities heap size (4KB)                (UTIL_HEAP_SZ) = AUTOMATIC(5000)
+ Package cache size (4KB)                   (PCKCACHESZ) = AUTOMATIC(320)
+
+Trace starting time     : 2016-08-02-17.17.06.963000+480
+
+7049387     sqlnn_cmpl exit
+7049388     | sqlo_init_GMT_timer_services entry [eduid 5884 eduname db2agent]
+7049389     | sqlo_init_GMT_timer_services exit
+7049390     | sqlra_fill_var entry [eduid 5884 eduname db2agent]
+7049391     | | sqlra_cache_reserve_memory_int entry [eduid 5884 eduname db2agent]
+7049392     | | sqlra_cache_reserve_memory_int data [probe 585]
+7049393     | | | stmmIsParmSetToAuto entry [eduid 5884 eduname db2agent]
+7049394     | | | | sqlf_get_automatic_bit entry [eduid 5884 eduname db2agent]
+7049395     | | | | sqlf_get_automatic_bit exit
+7049396     | | | stmmIsParmSetToAuto exit [rc = 1]
+7049397     | | | sqlzeSqlCode entry [eduid 5884 eduname db2agent]
+7049398     | | | | sqlzeStoreFuncName entry [eduid 5884 eduname db2agent]
+7049399     | | | | sqlzeStoreFuncName data [probe 1]
+7049400     | | | | sqlzeStoreFuncName exit
+7049401     | | | | sqlzStoreVariableMsgTokens entry [eduid 5884 eduname db2agent]
+7049402     | | | | | sqlzeTokenTruncate entry [eduid 5884 eduname db2agent]
+7049403     | | | | | sqlzeTokenTruncate exit
+7049404     | | | | sqlzStoreVariableMsgTokens exit
+7049405     | | | | sqlzelsc entry [eduid 5884 eduname db2agent]
+7049406     | | | | sqlzelsc data [probe 1]
+7049407     | | | | sqlzelsc data [probe 2]
+7049408     | | | | sqlzelsc exit
+7049409     | | | | sqlrr_dump_ffdc entry [eduid 5884 eduname db2agent]
+7049410     | | | | sqlrr_dump_ffdc exit
+7049411     | | | | pdInvokeCatchInterface entry [eduid 5884 eduname db2agent]
+7049412     | | | | pdInvokeCatchInterface data [probe 10]
+7049413     | | | | pdInvokeCatchInterface exit
+7049414     | | | sqlzeSqlCode exit [rc = 0x801A006D = -2145779603 = SQLZ_CA_BUILT]
+7049415     | | | sqlzeMapZrc entry [eduid 5884 eduname db2agent]
+7049416     | | | sqlzeMapZrc errtrans [probe 40] [ ZRC = 0x801A006D = -2145779603 = SQLZ_CA_BUILT -->  SQL0973  ]
+
+
+db2diag:
+2016-07-27-16.42.29.012000+480 I3041F536            LEVEL: Warning
+PID     : 8596                 TID : 8532           PROC : db2syscs.exe
+INSTANCE: DB2                  NODE : 000           DB   : BELSIZE
+APPHDL  : 0-8                  APPID: *LOCAL.DB2.160727050603
+AUTHID  : BELSIZE              HOSTNAME: MHDDEVFIN01
+EDUID   : 8532                 EDUNAME: db2stmm (BELSIZE)
+FUNCTION: DB2 UDB, Self tuning memory manager, stmmGetPkgCacheBenefitData, probe:4194
+MESSAGE : biasing PC seconds saved due to transaction failures
+
+2016-07-27-18.08.15.480000+480 I3579F515            LEVEL: Event
+PID     : 8596                 TID : 9248           PROC : db2syscs.exe
+INSTANCE: DB2                  NODE : 000           DB   : BELSIZE
+APPHDL  : 0-1487               APPID: *LOCAL.DB2.160727091306
+AUTHID  : BELSIZE              HOSTNAME: MHDDEVFIN01
+EDUID   : 9248                 EDUNAME: db2agent (BELSIZE)
+FUNCTION: DB2 UDB, config/install, sqlfLogUpdateCfgParam, probe:20
+CHANGE  : CFG DB BELSIZE: "Auto_runstats" From: "1"  To: "0" 
+
+db2support.zip_unpack/STMM/stmm.622.log:
+
+2016-07-27-17.15.16.255000+480 I1361619F1010        LEVEL: Event
+PID     : 8596                 TID : 8532           PROC : db2syscs.exe
+INSTANCE: DB2                  NODE : 000           DB   : BELSIZE
+APPHDL  : 0-8                  APPID: *LOCAL.DB2.160727050603
+AUTHID  : BELSIZE              HOSTNAME: MHDDEVFIN01
+EDUID   : 8532                 EDUNAME: db2stmm (BELSIZE)
+FUNCTION: DB2 UDB, Self tuning memory manager, stmmLogRecordBeforeResizes, probe:593
+DATA #1 : String, 510 bytes
+
+***  stmmCostBenefitRecord ***
+Type: PCKCACHESZ 
+PageSize: 4096
+Saved Misses: 31
+Benefit:
+  -> Simulation size: 1211
+  -> Total seconds saved: 0 (+ 478520175 ns)
+  -> Normalized seconds/page: 2.00811E-006
+Cost:
+  -> Simulation size: 1211
+  -> Total seconds saved: 0 (+ 478520175 ns)
+  -> Normalized seconds/page: 2.00811E-006
+Current Size: 320
+Minimum Size: 871
+Potential Increase Amount: 160
+Potential Increase Amount From OS: 160
+Potential Decrease Amount: 0
+Pages Available For OS: 0
+Interval Time: 196.775
+
+2016-07-27-17.18.32.909000+480 I1374582F1010        LEVEL: Event
+PID     : 8596                 TID : 8532           PROC : db2syscs.exe
+INSTANCE: DB2                  NODE : 000           DB   : BELSIZE
+APPHDL  : 0-8                  APPID: *LOCAL.DB2.160727050603
+AUTHID  : BELSIZE              HOSTNAME: MHDDEVFIN01
+EDUID   : 8532                 EDUNAME: db2stmm (BELSIZE)
+FUNCTION: DB2 UDB, Self tuning memory manager, stmmLogRecordBeforeResizes, probe:593
+DATA #1 : String, 510 bytes
+
+***  stmmCostBenefitRecord ***
+Type: PCKCACHESZ 
+PageSize: 4096
+Saved Misses: 44
+Benefit:
+  -> Simulation size: 1211
+  -> Total seconds saved: 0 (+ 238176843 ns)
+  -> Normalized seconds/page: 1.00016E-006
+Cost:
+  -> Simulation size: 1211
+  -> Total seconds saved: 0 (+ 238176843 ns)
+  -> Normalized seconds/page: 1.00016E-006
+Current Size: 320
+Minimum Size: 827
+Potential Increase Amount: 160
+Potential Increase Amount From OS: 160
+Potential Decrease Amount: 0
+Pages Available For OS: 0
+Interval Time: 196.646
